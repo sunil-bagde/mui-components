@@ -32,14 +32,14 @@ export default function App() {
     <ThemeProvider theme={theme}>
       <Box
         sx={{
-          m: {sm: 10 , md: 30},
+          m: { sm: 10, md: 10 },
           width: "100%",
           maxWidth: "1200px",
         }}
       >
         <Card
           sx={{
-            backgroundColor: "#040914",
+            backgroundColor: "#040914", //040914
             color: "#fff",
             display: "grid",
             gridTemplateColumns: {
@@ -48,24 +48,26 @@ export default function App() {
             border: 1,
             borderColor: "rgba(255, 255, 255, 0.10)",
             borderRadius: "20px",
-            px:4,
+            px: { xs: 0.7, sm: 2, md: 2 },
           }}
         >
           <Box
- 
             sx={{
+              my:  { xs: 4 } ,
               position: "relative",
-              display: "flex",
+              display: "flex", 
               flexDirection: "column",
               alignItems: "center",
+              justifyContent: "center",
+              borderColor: "rgba(255, 255, 255, 0.10)",
+              borderRadius: "20px",
+              backgroundColor :"red !important"
             }}
           >
             <CardMedia
               component="img"
+              
               sx={{
-               
-                px: 3,
-                py: 3,
                 borderColor: "rgba(255, 255, 255, 0.10)",
                 borderRadius: "20px",
               }}
@@ -88,7 +90,13 @@ export default function App() {
           </Box>
 
           <Box sx={{ pl: 2, pr: 5, py: { md: 5, xs: 0 } }}>
-            <Typography sx={{ fontSize: { md: `40px`, xs: `16px`  }, fontWeight:  { md: `400`, xs: `600`  }, pb: 2 }}>
+            <Typography
+              sx={{
+                fontSize: { md: `32px`, xs: `16px` },
+                fontWeight: { md: `700`, xs: `600` },
+                pb: 2,
+              }}
+            >
               Northeast Collectibles Competitive Kryptic Tower play
             </Typography>
             <BadgeStats />
@@ -101,16 +109,19 @@ export default function App() {
                   alignItems: "center",
                   justifyContent: "end",
                   textTransform: "none",
+                  flex: `1 1 0%`,
                   fontSize: "1.5rem",
                   color: "#5C6BC0",
                   pt: 2,
-                  pl: { md: 6, xs: `0` },
+                  pl: { md: 0, xs: `0` },
                 }}
               >
                 <Box
                   sx={{
                     fontSize: "1.5rem",
-                    color: "#5C6BC0", 
+                    fontWeight: 700,
+                    color: "#5C6BC0",
+                    display: { lg: "block", md: `none` },
                   }}
                 >
                   More info
@@ -128,7 +139,7 @@ export default function App() {
                     justifyContent: "center",
                   }}
                 >
-                  <EastIcon sx={{color: "#fff"}} />
+                  <EastIcon sx={{ color: "#fff" }} />
                 </Box>
               </Box>
             </CardActions>
@@ -145,11 +156,11 @@ export function EventStatus() {
       sx={{
         borderRadius: `0px 0px 20px 20px`,
         background: "#02BA1F",
-        position: 'absolute',
-        bottom: 0,
+        position: "absolute",
+        bottom: -20,
         width: "100%",
         textAlign: "center",
-        py:1
+        py: 1,
       }}
     >
       In Progress
@@ -244,7 +255,9 @@ export function Location() {
         </Typography>
       </Badge>
 
-      <Badge>
+      <Badge
+        sx={{ alignItems: { md: "center" }, justifyContent: { md: "center" } }}
+      >
         <MapIcon sx={{ width: { xs: "16px", sm: "auto" } }} />
 
         <Typography sx={{ fontSize: { md: `20px`, xs: `16px` }, pl: 2 }}>
