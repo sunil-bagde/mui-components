@@ -26,139 +26,140 @@ const theme = createTheme({
     fontFamily: ["Exo 2", "sans-serif"].join(","),
   },
 });
-
-export default function App() {
+export function EventCard() {
   return (
-    <ThemeProvider theme={theme}>
-      <Box
+    <Box
+      sx={{
+        m: { sm: 10, md: 10 },
+        width: "100%",
+        maxWidth: "1200px",
+      }}
+    >
+      <Card
         sx={{
-          m: { sm: 10, md: 10 },
-          width: "100%",
-          maxWidth: "1200px",
+          backgroundColor: "#040914", //040914
+          color: "#fff",
+          display: "grid",
+          gridTemplateColumns: {
+            md: `15rem 12rem auto auto`,
+          },
+          border: 1,
+          borderColor: "rgba(255, 255, 255, 0.10)",
+          borderRadius: "20px",
+          px: { xs: 4, sm: 2, md: 2 },
         }}
       >
-        <Card
+        <Box
           sx={{
-            backgroundColor: "#040914", //040914
-            color: "#fff",
-            display: "grid",
-            gridTemplateColumns: {
-              md: `15rem 12rem auto auto`,
-            },
-            border: 1,
+            my: { xs: 2 },
+            position: "relative",
+            display: "flex",
+            flexDirection: "column",
+            alignItems: "center",
+            justifyContent: "center",
             borderColor: "rgba(255, 255, 255, 0.10)",
             borderRadius: "20px",
-            px: { xs: 0.7, sm: 2, md: 2 },
+            backgroundColor: "#040914",
           }}
         >
-          <Box
+          <CardMedia
+            component="img"
             sx={{
-              my:  { xs: 4 } ,
-              position: "relative",
-              display: "flex", 
-              flexDirection: "column",
-              alignItems: "center",
-              justifyContent: "center",
               borderColor: "rgba(255, 255, 255, 0.10)",
               borderRadius: "20px",
-              backgroundColor :"red !important"
             }}
-          >
-            <CardMedia
-              component="img"
-              
-              sx={{
-                borderColor: "rgba(255, 255, 255, 0.10)",
-                borderRadius: "20px",
-              }}
-              image="/image-299.png"
-              alt="Paella dish"
-            />
-            <EventStatus />
-          </Box>
+            image="/image-299.png"
+            alt="Paella dish"
+          />
+          <EventStatus />
+        </Box>
 
-          <Box
+        <Box
+          sx={{
+            display: { md: `flex`, xs: `none` },
+            flexDirection: "column",
+            alignItems: "center",
+            justifyContent: "center",
+          }}
+        >
+          <DateCard />
+        </Box>
+
+        <Box sx={{ pl: 2, pr: 5, py: { md: 5, xs: 0 } }}>
+          <Typography
             sx={{
-              // gridColumn: `span 1 / span 1`,
-              display: { md: `flex`, xs: `none` },
-              flexDirection: "column",
-              alignItems: "center",
-              justifyContent: "center",
+              fontSize: { md: `2.66rem`, xs: `1.2rem` },
+              fontWeight: 700,
+              pb: 2,
             }}
           >
-            <DateCard />
-          </Box>
+            Northeast Collectibles Competitive Kryptic Tower play
+          </Typography>
+          <BadgeStats />
 
-          <Box sx={{ pl: 2, pr: 5, py: { md: 5, xs: 0 } }}>
-            <Typography
+          <CardActions sx={{ p: 0 }}>
+            <Location />
+            <Box
               sx={{
-                fontSize: { md: `32px`, xs: `16px` },
-                fontWeight: { md: `700`, xs: `600` },
-                pb: 2,
+                display: { md: `flex`, xs: `none` },
+                alignItems: "center",
+                justifyContent: "end",
+                textTransform: "none",
+                flex: `1 1 0%`,
+                fontSize: "1.5rem",
+                color: "#5C6BC0",
+                pt: 2,
+                pl: { md: 0, xs: `0` },
               }}
             >
-              Northeast Collectibles Competitive Kryptic Tower play
-            </Typography>
-            <BadgeStats />
-
-            <CardActions sx={{ p: 0 }}>
-              <Location />
               <Box
                 sx={{
-                  display: { md: `flex`, xs: `none` },
-                  alignItems: "center",
-                  justifyContent: "end",
-                  textTransform: "none",
-                  flex: `1 1 0%`,
                   fontSize: "1.5rem",
+                  fontWeight: 700,
                   color: "#5C6BC0",
-                  pt: 2,
-                  pl: { md: 0, xs: `0` },
+                  display: { lg: "block", md: `none` },
+                  cursor: "pointer",
                 }}
               >
-                <Box
-                  sx={{
-                    fontSize: "1.5rem",
-                    fontWeight: 700,
-                    color: "#5C6BC0",
-                    display: { lg: "block", md: `none` },
-                  }}
-                >
-                  More info
-                </Box>
-                <Box
-                  component={"span"}
-                  sx={{
-                    ml: 1,
-                    borderRadius: "9999px",
-                    backgroundColor: "#5C6BC0",
-                    width: "50px",
-                    height: "50px",
-                    display: "inline-flex",
-                    alignItems: "center",
-                    justifyContent: "center",
-                  }}
-                >
-                  <EastIcon sx={{ color: "#fff" }} />
-                </Box>
+                More info
               </Box>
-            </CardActions>
-          </Box>
-        </Card>
-      </Box>
-    </ThemeProvider>
+              <Box
+                component={"span"}
+                sx={{
+                  ml: 1,
+                  borderRadius: "9999px",
+                  backgroundColor: "#5C6BC0",
+                  width: "50px",
+                  height: "50px",
+                  display: "inline-flex",
+                  alignItems: "center",
+                  justifyContent: "center",
+                  cursor: "pointer",
+                }}
+              >
+                <EastIcon sx={{ color: "#fff" }} />
+              </Box>
+            </Box>
+          </CardActions>
+        </Box>
+      </Card>
+    </Box>
   );
+}
+export default function App() {
+  return <ThemeProvider theme={theme}><EventCard /></ThemeProvider>;
 }
 export function EventStatus() {
   return (
     <Box
       component="h3"
       sx={{
-        borderRadius: `0px 0px 20px 20px`,
+        borderRadius: { md: `0px 0px 20px 20px`, xs: "9999px" },
         background: "#02BA1F",
         position: "absolute",
-        bottom: -20,
-        width: "100%",
+        bottom: { xs: 1, md: -20 },
+        left: { xs: 10, md: "auto" },
+        width: { md: "100%", xs: "50%" },
         textAlign: "center",
         py: 1,
       }}
@@ -233,23 +234,23 @@ export function BadgeStats() {
 }
 export function Location() {
   return (
-    <Stack spacing={2} direction={{ xs: "column", sm: "row" }} sx={{ py: 4 }}>
+    <Stack spacing={2} direction={{ xs: "column", md: "row", sm: "column" }} sx={{ py: 4 }}>
       <Badge sx={{ display: { md: `none`, xs: `flex` } }}>
-        <CalendarTodayIcon sx={{ width: { xs: "16px", sm: "auto" } }} />
-        <Typography sx={{ fontSize: { md: `20px`, xs: `16px` }, pl: 2 }}>
+        <CalendarTodayIcon sx={{ width: { xs: "20px", sm: "auto" } }} />
+        <Typography sx={{ fontSize: { md: `20px`, xs: `20px` }, pl: 2 }}>
           Sun July 23, 2023
         </Typography>
       </Badge>
       <Badge sx={{ display: { md: `none`, xs: `flex` } }}>
-        <AccessTimeIcon sx={{ width: { xs: "16px", sm: "auto" } }} />
-        <Typography sx={{ fontSize: { md: `20px`, xs: `16px` }, pl: 2 }}>
+        <AccessTimeIcon sx={{ width: { xs: "20px", sm: "auto" } }} />
+        <Typography sx={{ fontSize: { md: `20px`, xs: `20px` }, pl: 2 }}>
           Start at 11:00 AM
         </Typography>
       </Badge>
       <Badge>
-        <BuildingIcon sx={{ width: { xs: "16px", sm: "auto" } }} />
+        <BuildingIcon sx={{ width: { xs: "20px", sm: "auto" } }} />
         <Typography
-          sx={{ fontSize: { md: `20px`, xs: `16px` }, pl: { xs: 1, sm: 2 } }}
+          sx={{ fontSize: { md: `20px`, xs: `20px` }, pl: { xs: 1, sm: 2 } }}
         >
           Northeast Collectibles
         </Typography>
@@ -258,9 +259,9 @@ export function Location() {
       <Badge
         sx={{ alignItems: { md: "center" }, justifyContent: { md: "center" } }}
       >
-        <MapIcon sx={{ width: { xs: "16px", sm: "auto" } }} />
+        <MapIcon sx={{ width: { xs: "20px", sm: "auto" } }} />
 
-        <Typography sx={{ fontSize: { md: `20px`, xs: `16px` }, pl: 2 }}>
+        <Typography sx={{ fontSize: { md: `20px`, xs: `20px` }, pl: 2 }}>
           Seymour, CT
         </Typography>
       </Badge>
