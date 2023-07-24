@@ -2,6 +2,7 @@ import { SvgIcon as MUISvgIcon } from "@mui/material";
 import MUICalendarTodayIcon from "@mui/icons-material/CalendarToday";
 import MUIAccessTimeIcon from "@mui/icons-material/AccessTime";
 import MUIEastIcon from "@mui/icons-material/East";
+import MUIPeopleAltIcon from '@mui/icons-material/PeopleAlt';
 export const map = (
 	<>
 		<path
@@ -76,3 +77,4 @@ export function MapIcon(props) {
 export const CalendarTodayIcon = MUICalendarTodayIcon;
 export const AccessTimeIcon = MUIAccessTimeIcon;
 export const EastIcon = MUIEastIcon;
+export const PeopleAltIcon = MUIPeopleAltIcon

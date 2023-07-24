@@ -19,6 +19,7 @@ import {
   EastIcon,
   CalendarTodayIcon,
   AccessTimeIcon,
+  PeopleAltIcon,
 } from "./icons/icons";
 import { Stack } from "@mui/system";
 const theme = createTheme({
@@ -91,6 +92,7 @@ export function EventCard() {
               fontSize: { md: `2.66rem`, xs: `1.2rem` },
               fontWeight: 700,
               pb: 2,
+              lineHeight: 1.5,
             }}
           >
             Northeast Collectibles Competitive Kryptic Tower play
@@ -147,19 +149,22 @@ export function EventCard() {
   );
 }
 export default function App() {
-  return <ThemeProvider theme={theme}><EventCard /></ThemeProvider>;
+  return (
+    <ThemeProvider theme={theme}>
+      <EventCard />
+    </ThemeProvider>
+  );
 }
 export function EventStatus() {
   return (
     <Box
       component="h3"
       sx={{
-        borderRadius: { md: `0px 0px 20px 20px`, xs: "9999px" },
+        borderRadius:   `0px 0px 20px 20px`,
         background: "#02BA1F",
         position: "absolute",
-        bottom: { xs: 1, md: -20 },
-        left: { xs: 10, md: "auto" },
-        width: { md: "100%", xs: "50%" },
+        bottom:   -20 ,
+        width: "100%",
         textAlign: "center",
         py: 1,
       }}
@@ -203,54 +208,64 @@ export function DateCard() {
     </Box>
   );
 }
+export function Capacity() {
+  return (
+    <Badge
+      sx={{
+        px: 2,
+        py: 0.4,
+        border: 1,
+        borderColor: "rgba(255, 255, 255, 0.30)",
+        borderRadius: "40px",
+        
+      }}
+    > 
+      <Typography sx={{fontSize: { md: `20px`, xs: `1.1rem` }}}>7/23 capacity</Typography>
+    </Badge>
+  );
+}
 export function BadgeStats() {
   return (
     <Stack spacing={2} direction="row">
       <Badge
         sx={{
-          px: 2,
+          px: { xs: 2 , sm: 2 },
           py: 0.4,
-          border: 1,
+          border:    1    ,
           borderColor: "rgba(255, 255, 255, 0.30)",
           borderRadius: "40px",
-        }}
-      >
-        <Typography>Constructed</Typography>
-      </Badge>
 
-      <Badge
-        sx={{
-          px: 2,
-          py: 0.4,
-          border: 1,
-          borderColor: "rgba(255, 255, 255, 0.30)",
-          borderRadius: "40px",
         }}
       >
-        <Typography>7/23 capacity</Typography>
+        <Typography sx={{fontSize: { md: `20px`, xs: `1.1rem` }}} >Constructed</Typography>
       </Badge>
+      <Capacity />
     </Stack>
   );
 }
 export function Location() {
   return (
-    <Stack spacing={2} direction={{ xs: "column", md: "row", sm: "column" }} sx={{ py: 4 }}>
+    <Stack
+      spacing={2}
+      direction={{ xs: "column", md: "row", sm: "column" }}
+      sx={{ py: 4 }}
+    >
       <Badge sx={{ display: { md: `none`, xs: `flex` } }}>
         <CalendarTodayIcon sx={{ width: { xs: "20px", sm: "auto" } }} />
-        <Typography sx={{ fontSize: { md: `20px`, xs: `20px` }, pl: 2 }}>
+        <Typography sx={{ fontSize: { md: `20px`, xs: `1.1rem` }, pl: 2 }}>
           Sun July 23, 2023
         </Typography>
       </Badge>
       <Badge sx={{ display: { md: `none`, xs: `flex` } }}>
         <AccessTimeIcon sx={{ width: { xs: "20px", sm: "auto" } }} />
-        <Typography sx={{ fontSize: { md: `20px`, xs: `20px` }, pl: 2 }}>
+        <Typography sx={{ fontSize: { md: `20px`, xs: `1.1rem` }, pl: 2 }}>
           Start at 11:00 AM
         </Typography>
       </Badge>
       <Badge>
         <BuildingIcon sx={{ width: { xs: "20px", sm: "auto" } }} />
         <Typography
-          sx={{ fontSize: { md: `20px`, xs: `20px` }, pl: { xs: 1, sm: 2 } }}
+          sx={{ fontSize: { md: `20px`, xs: `1.1rem` }, pl: { xs: 1, sm: 2 } }}
         >
           Northeast Collectibles
         </Typography>
@@ -261,7 +276,7 @@ export function Location() {
       >
         <MapIcon sx={{ width: { xs: "20px", sm: "auto" } }} />
 
-        <Typography sx={{ fontSize: { md: `20px`, xs: `20px` }, pl: 2 }}>
+        <Typography sx={{ fontSize: { md: `20px`, xs: `1.1rem` }, pl: 2 }}>
           Seymour, CT
         </Typography>
       </Badge>
@@ -269,4 +284,4 @@ export function Location() {
   );
 }
 
-//createRoot(document.querySelector("#app")).render(<App />);
+ 
